@@ -10,7 +10,7 @@ const expressLayouts = require('express-ejs-layouts')
 const bodyParser = require('body-parser')
 
 const indexRouter = require('./routes/index')
-const authorRouter = require('./routes/authors')
+const userRouter = require('./routes/users')
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
@@ -26,7 +26,7 @@ database.on('error', error => console.error(error)) //Bắt lỗi
 database.once('open',() => console.log('Connected to Database')) //Kết nối một lần đầu, thành công thì báo
 
 app.use('/', indexRouter)
-app.use('/authors', authorRouter) //tất cả các route có đi qua /authors sẽ dùng authorRouter
+app.use('/users', userRouter) //tất cả các route có đi qua /users sẽ dùng userRouter
 
 app.listen(process.env.PORT || 3000, () =>{
     console.log('Server is running')
