@@ -25,7 +25,8 @@ router.get('/', async (req, res) => {
             mangas: mangas,
             searchOptions: req.query
         })
-    } catch {
+    } catch (error) {
+        console.log(error)
         res.redirect('/')
     }
 })

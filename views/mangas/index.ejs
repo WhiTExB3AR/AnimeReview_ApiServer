@@ -8,13 +8,7 @@
 </form>
 <div>
     <% mangas.forEach(manga => { %>
-        <!-- <div>
-            < %= user.name %> 
-            <br> 
-            < %= user.email %> 
-            <br> 
-            < %= user.password %>
-        </div> Show thông tin của người dùng -->
         <img height="150" width="100" src="<% manga.coverImagePath %> ">
+        <%= manga.title %>
     <% }) %>
 </div>
