@@ -1,0 +1,28 @@
+<div>
+    <label>Title</label>
+    <input type="text" name="title" value="<%= manga.title %>">
+</div>
+<div>
+    <label>Author</label>
+    <input type="text" name="author" value="<%= manga.author %>">
+</div>
+<!-- <div>
+    <label>Create At</label>
+    <input type="date" name="createDate" value="< %= manga.createAt == null ? '' : manga.createAt.toISOString().split('T')[0] %>"> 
+    <! -- check nếu input createAt ko null thì sẽ format kiểu dữ liệu 
+        date thành mm-dd-yyyy và split('T') là bỏ phần thời gian 
+        2020-05-12T24:00 phần từ 0 là ngày tháng năm và phần tử 1 
+        là thời gian -- >
+</div> -->
+<div>
+    <label>Chapter</label>
+    <input type="number" name="chapter" min="1" value="<%= manga.chapter %>">
+</div>
+<div>
+    <label>Cover Image</label>
+    <input type="file" name="cover">
+</div>
+<div>
+    <label>Description</label>
+    <textarea name="description"><%= manga.description %></textarea>
+</div>

@@ -1,0 +1,20 @@
+<h2>Search Mangas</h2>
+<form action="/mangas" method="GET">
+    <div>
+        <label>Title</label>
+        <input type="text" name="title" value="<%= searchOptions.title %>">
+    </div>
+    <button type="submit">Search</button>
+</form>
+<div>
+    <% mangas.forEach(manga => { %>
+        <!-- <div>
+            < %= user.name %> 
+            <br> 
+            < %= user.email %> 
+            <br> 
+            < %= user.password %>
+        </div> Show thông tin của người dùng -->
+        <img height="150" width="100" src="<% manga.coverImagePath %> ">
+    <% }) %>
+</div>

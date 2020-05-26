@@ -6,5 +6,11 @@
 </form>
 <br>
 <% users.forEach(user => { %>
-    <div><%= user.name %></div> <!-- Show tên của người dùng -->
+    <div>
+        <%= user.name %> 
+        <br> 
+        <%= user.email %> 
+        <br> 
+        <%= user.password %>
+    </div> <!-- Show thông tin của người dùng -->
 <% }) %>
