@@ -1,0 +1,7 @@
+<!-- % không có dấu = nghĩa là không thực thi ở web client mà chỉ thực thi ở server
+kiểm tra error có hay không, nếu error khác null nghĩa là có error. Bởi vì
+error không có cần biến mà là hàm tự gọi chính nó, nhưng vì ejs không phải không có biến 
+nên mưới dùng if để gọi chính nó -->
+<% if (locals.errorMessage != null) { %>
+<%= errorMessage %>
+<% } %>
