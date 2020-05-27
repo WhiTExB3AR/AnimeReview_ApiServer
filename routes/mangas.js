@@ -16,7 +16,7 @@ const upload = multer({
 //Route dùng để load toàn bộ manga trong database
 router.get('/', async (req, res) => {
     let query = Manga.find()
-    if(req.query.Title != null && req.query.title != '') {
+    if(req.query.title != null && req.query.title != '') {
         query = query.regex('title', new RegExp(req.query.title, 'i'))
     }
     try {
