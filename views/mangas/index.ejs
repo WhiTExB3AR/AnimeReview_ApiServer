@@ -8,7 +8,7 @@
 </form>
 <div>
     <% mangas.forEach(manga => { %>
-        <img height="150" width="100" src="<% manga.coverImagePath %> ">
+        <img height="150" width="100" src="<%= manga.coverImagePath %> ">
         <%= manga.title %>
     <% }) %>
 </div>
