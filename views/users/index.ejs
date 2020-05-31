@@ -6,11 +6,16 @@
 </form>
 <br>
 <% users.forEach(user => { %>
-    <div>
-        <%= user.name %> 
-        <br> 
-        <%= user.email %> 
-        <br> 
-        <%= user.password %>
-    </div> <!-- Show thông tin của người dùng -->
+<div>
+    <%= user.name %>
+    <br>
+    <%= user.email %>
+    <br>
+    <%= user.password %>
+</div> <!-- Show thông tin của người dùng -->
+<a href="/users/<%= user.id %>">View</a>
+<a href="/users/<%= user.id %>/edit">Edit</a>
+<!-- <a href="/users/< %= user.id %>">Delete</a> //ko dùng như thế này vì server sẽ hiểu nhầm giao thức này thành GET và lần lượt đi vào trong database xoá từng dữ liệu -->
+<%- include('../partials/deleteForm', 
+                { url: `/users/${user.id}` }) %>
 <% }) %>
