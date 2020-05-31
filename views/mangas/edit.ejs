@@ -1,7 +1,7 @@
-<h2>Edit Manga</h2>
+<h2 class="page-header">Edit Manga</h2>
 <!-- <form action="/mangas" method="POST" enctype="multipart/form-data"> báo cho server biết rằng form này sẽ chứa file -->
 <form action="/mangas/<%= manga.id %>?_method=PUT" method="POST"> <!-- báo cho server biết rằng form này sẽ chứa file -->
     <%- include('formCreate') %>
     <a href="/mangas">Cancel</a>
-    <button type="submit">Update</button>
+    <button class="btn btn-action" type="submit">Update</button>
 </form>

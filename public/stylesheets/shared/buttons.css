@@ -1,0 +1,54 @@
+.btn {
+    border: 1px solid black;
+    border-radius: .5rem;
+    padding: .5rem 1rem;
+    font-size: 1.2rem;
+    font-family: 'Concert One', cursive;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-row {
+    display: flex;
+    align-items: flex-start;
+}
+
+.btn-row > * {
+    margin-left: 1rem;
+}
+
+.btn-row > *:first-child {
+    margin-left: 0;
+}
+
+.btn-primary {
+    color: black;
+    background-color: rgb(138, 183, 206);
+}
+.btn-primary:hover {
+    color: #40444B;
+    background-color: rgb(179, 228, 253);
+    transition: 0.4s;
+}
+
+.btn-action {
+    color: black;
+    background-color: rgb(146, 207, 174);
+}
+.btn-action:hover {
+    color: #40444B;
+    background-color: rgb(176, 247, 208);
+    transition: 0.4s;
+}
+
+.btn-danger {
+    color: black;
+    background-color: rgb(211, 149, 149);
+}
+.btn-danger:hover {
+    color: #40444B;
+    background-color: rgb(253, 184, 184);
+    transition: 0.4s;
+}
+
