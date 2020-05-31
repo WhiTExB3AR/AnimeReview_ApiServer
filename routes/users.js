@@ -66,6 +66,7 @@ router.post('/', async (req, res) => {
   }
 })
 
+//Route dùng để xem thông tin 1 user
 router.get('/:id', async (req, res) => { //lấy id user từ trang gốc
   // res.send('Show User '+ req.params.id)
   try {
@@ -77,6 +78,7 @@ router.get('/:id', async (req, res) => { //lấy id user từ trang gốc
   }
 })
 
+//Route đi vào edit 1 user
 router.get('/:id/edit', async (req, res) => {
   // res.send('Edit User ' + req.params.id)
   try {
@@ -88,6 +90,7 @@ router.get('/:id/edit', async (req, res) => {
 
 })
 
+//Route để update thông tin của 1 user
 router.put('/:id', async (req, res) => { //không thêm /edit vào vì giao thức PUT đã mặc định là update/edit rồi
   // res.send('Update User ' + req.params.id)
   let user
@@ -112,6 +115,7 @@ router.put('/:id', async (req, res) => { //không thêm /edit vào vì giao th�
   }
 })
 
+//Route để delete 1 user
 router.delete('/:id', async (req, res) => { //không thêm /delete vào vì giao thức DELETE đã mặc định là delete rồi
   // res.send('Delete User ' + req.params.id)
   let user

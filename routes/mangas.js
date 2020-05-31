@@ -53,8 +53,8 @@ router.post('/', async (req, res) => { //upload.single('cover') là từng cover
 
     try{
         const newManga = await manga.save()
-        // res.redirect(`mangas/${newManga.id}`)
-        res.redirect(`mangas`)
+        res.redirect(`mangas/${newManga.id}`)
+        // res.redirect(`mangas`)
     }catch (error) {
         console.log(error)
         // if(manga.coverImageName != null){
@@ -70,13 +70,114 @@ router.post('/', async (req, res) => { //upload.single('cover') là từng cover
 //     }) //ko lưu link cover đó vào uploads/mangaCovers
 // }
 
+//Route dùng để xem thông tin 1 manga
+router.get('/:id', async (req, res) => {
+    try {
+        const manga = await Manga.findById(req.params.id)
+        res.render('mangas/show', { manga: manga })
+    } catch (error) {
+        console.log(error)
+        res.redirect('/')
+    }
+})
+
+//Route đi vào edit 1 manga
+router.get('/:id/edit', async (req, res) => {
+    try {
+        const manga = await Manga.findById(req.params.id)
+        renderEditPage(res, manga)
+    } catch (error) {
+        console.log(error)
+        res.redirect('/')
+    }
+})
+
+//Route để update thông tin của 1 manga
+router.put('/:id', async (req, res) => { 
+    let manga
+    try{
+        manga = await Manga.findById(req.params.id)
+        manga.title = req.body.title,
+        manga.author = req.body.author,
+        manga.chapter = req.body.chapter,
+        manga.description = req.body.description
+        if (req.body.cover != null && req.body.cover !== '') {
+            saveCover(manga, req.body.cover)
+        }
+        await manga.save()
+        res.redirect(`/mangas/${manga.id}`)
+    }catch (error) {
+        console.log(error)
+        if (manga != null) {
+            renderEditPage(res, manga, true)
+        } else {
+            redirect('/')
+        }
+    }
+})
+
+//Route để delete 1 manga
+router.delete('/:id', async (req, res) => {
+    let manga
+    try {
+        manga = await Manga.findById(req.params.id)
+        await manga.remove()
+        res.redirect('/mangas')
+    } catch (error) {
+        console.log(error)
+        if (manga != null) {
+            res.render('mangas/show', {
+                manga: manga,
+                errorMessage: 'Could not remove manga'
+            })
+        } else {
+            res.redirect('/')
+        }
+    }
+})
+
 function renderNewPage(res, manga, hasError = false){
+    // try{
+    //     const params = {
+    //         manga: manga
+    //     }
+    //     if (hasError) params.errorMessage = 'Error Creating Manga'
+    //     res.render('mangas/new', params)
+    // } catch (error) {
+    //     console.log(error)
+    //     res.redirect('/mangas')
+    // }
+    renderFormPage(res, manga, 'new', hasError)
+}
+
+function renderEditPage(res, manga, hasError = false){
+    // try{
+    //     const params = {
+    //         manga: manga
+    //     }
+    //     if (hasError) params.errorMessage = 'Error Creating Manga'
+    //     res.render('mangas/edit', params)
+    // } catch (error) {
+    //     console.log(error)
+    //     res.redirect('/mangas')
+    // }
+    renderFormPage(res, manga, 'edit', hasError)
+}
+
+//Tạo ra một cái function để gọi 2 hàm trên là renderNewPage và renderEditPage
+function renderFormPage(res, manga, form, hasError = false){
     try{
         const params = {
             manga: manga
         }
-        if (hasError) params.errorMessage = 'Error Creating Manga'
-        res.render('mangas/new', params)
+        if (hasError) {
+            if (form == 'edit') {
+                params.errorMessage = 'Error Updating Manga'
+            } else {
+                params.errorMessage = 'Error Creating Manga'
+            }
+        }
+        res.render(`mangas/${form}`, params)
     } catch (error) {
         console.log(error)
         res.redirect('/mangas')
