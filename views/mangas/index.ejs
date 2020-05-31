@@ -10,11 +10,13 @@
         <button class="btn btn-primary" type="submit">Search</button>
     </div>
 </form>
-<div>
+<div class="form-row">
     <% mangas.forEach(manga => { %>
-        <a href="/mangas/<%= manga.id %> ">
-            <img height="150" width="100" src="<%= manga.coverImagePath %> ">
-            <%= manga.title %>
-        </a>
+        <div class="form-item">
+            <a href="/mangas/<%= manga.id %> ">
+                <img height="150" width="100" src="<%= manga.coverImagePath %> ">
+                <%= manga.title %>
+            </a>
+        </div>
     <% }) %>
 </div>

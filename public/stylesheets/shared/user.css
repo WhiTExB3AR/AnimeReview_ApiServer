@@ -1,0 +1,10 @@
+.user-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.user-att {
+    font-size: 1.5rem;
+    color: white;
+}

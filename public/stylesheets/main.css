@@ -15,6 +15,7 @@
 @import 'shared/header.css';
 @import 'shared/buttons.css';
 @import 'shared/form.css';
+@import 'shared/user.css';
 
 :root {
     /* font-family: 'Maven Pro', sans-serif; */

@@ -48,6 +48,16 @@
     border-color: rgb(159, 203, 219);
 }
 
+.form-item a {
+    text-decoration:  none;
+    color: rgb(138, 173, 190);
+}
+
+.form-item a:hover {
+    color: white;
+    transition: 0.4s;
+}
+
 .filepond--root {
     font-family: 'Cuprum', sans-serif;
     margin-bottom: 0;
