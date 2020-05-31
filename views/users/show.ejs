@@ -1,4 +1,6 @@
-<h2 class="page-header">Recently user <%= user.name %> </h2>
-<a href="/users/<%= user.id %>/edit">Edit</a>
-<%- include('../partials/deleteForm', 
-            { url: `/users/${user.id}` }) %>
+<h2 class="page-header">Recently user: <%= user.name %> </h2>
+<div class="btn-row">
+    <a class="btn btn-action" href="/users/<%= user.id %>/edit">Edit</a>
+    <%- include('../partials/deleteForm', 
+                { url: `/users/${user.id}` }) %>
+</div>

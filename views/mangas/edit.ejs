@@ -2,6 +2,8 @@
 <!-- <form action="/mangas" method="POST" enctype="multipart/form-data"> báo cho server biết rằng form này sẽ chứa file -->
 <form action="/mangas/<%= manga.id %>?_method=PUT" method="POST"> <!-- báo cho server biết rằng form này sẽ chứa file -->
     <%- include('formCreate') %>
-    <a href="/mangas">Cancel</a>
-    <button class="btn btn-action" type="submit">Update</button>
+    <div class="form-row btn-row form-row-end">
+        <a class="btn btn-danger" href="/mangas">Cancel</a>
+        <button class="btn btn-action" type="submit">Update</button>
+    </div>
 </form>

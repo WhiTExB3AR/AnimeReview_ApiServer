@@ -1,9 +1,11 @@
-<h2 class="page-header">Recently manga <%= manga.title %> </h2>
+<h2 class="page-header">Recently manga: <%= manga.title %> </h2>
 <img width="100" height="150" src="<%= manga.coverImagePath %>">
 <div>Author: <%= manga.author %></div>
 <div>Chapter: <%= manga.chapter %></div>
 <div>Description: <%= manga.description %></div>
 
-<a href="/mangas/<%= manga.id %>/edit">Edit</a>
-<%- include('../partials/deleteForm', 
-            { url: `/mangas/${manga.id}`}) %> 
+<div class="btn-row"></div>
+    <a class="btn btn-action" href="/mangas/<%= manga.id %>/edit">Edit</a>
+    <%- include('../partials/deleteForm', 
+                { url: `/mangas/${manga.id}`}) %> 
+</div>
